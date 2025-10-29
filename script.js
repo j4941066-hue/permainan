@@ -60,7 +60,7 @@ function mulaiGame() {
 function cekJawaban() {
     const jawabanUser = parseInt(answerInput.value);
 
-    // Cek apakah input valid
+    // Cek apakah input valid (bukan angka atau kosong)
     if (isNaN(jawabanUser)) {
         feedbackElement.textContent = 'Harap masukkan angka yang valid.';
         feedbackElement.className = 'feedback-text incorrect';
@@ -107,6 +107,7 @@ submitBtn.addEventListener('click', cekJawaban);
 
 // Memungkinkan cek jawaban dengan menekan 'Enter' pada input
 answerInput.addEventListener('keydown', (event) => {
+    // Pastikan tombol kirim aktif (disabled=false) sebelum memproses Enter
     if (event.key === 'Enter' && !submitBtn.disabled) {
         cekJawaban();
     }
@@ -117,10 +118,10 @@ startBtn.addEventListener('click', () => {
         // Jika game sudah selesai, mulai ulang
         mulaiGame();
     } else {
-        // Lanjut ke soal berikutnya
+        // Lanjut ke soal berikutnya (jika tombol start aktif)
         buatSoal();
         feedbackElement.textContent = '';
-        startBtn.disabled = true; // Nonaktifkan lagi
+        startBtn.disabled = true; // Nonaktifkan lagi sampai jawaban dikirim
         answerInput.focus();
     }
 });
