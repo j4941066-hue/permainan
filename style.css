@@ -1,97 +1,159 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f9;
+    background-color: #F8F0E3; /* Cream lembut */
+    color: #5C5470;
 }
 
 .container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #E8D3D9; /* Pink lembut */
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     text-align: center;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #4C3F5E; /* Ungu tua */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
 #score-area {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #555;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #6C6285;
+    font-weight: 600;
 }
 
 #question-area {
-    border: 2px solid #007bff;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    background-color: #F0E6F0; /* Lavender muda */
+    border: 2px solid #D5A6B4; /* Pink yang sedikit lebih gelap */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    min-height: 80px; /* Agar tidak terlalu gepeng */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .question-text {
-    font-size: 2.5em;
+    font-size: 2.8em;
     font-weight: bold;
-    color: #007bff;
-    margin-top: 5px;
+    color: #7A5B69; /* Pink-ungu tua */
+    margin: 0;
+}
+
+.input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 #user-answer {
-    padding: 10px;
-    width: 60%;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
+    padding: 12px;
+    width: 55%;
+    border: 1px solid #D5A6B4;
+    border-radius: 8px;
+    font-size: 1.1em;
     text-align: center;
+    background-color: #FFFDF9;
+    color: #5C5470;
+    transition: all 0.3s ease;
+}
+
+#user-answer:focus {
+    outline: none;
+    border-color: #B088A0; /* Pink lebih gelap saat fokus */
+    box-shadow: 0 0 0 3px rgba(213, 166, 180, 0.4);
 }
 
 #submit-btn, #start-btn {
-    padding: 10px 15px;
+    padding: 12px 22px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #submit-btn {
-    background-color: #28a745;
-    color: white;
+    background-color: #9EC0B0; /* Hijau sage */
 }
 
-#submit-btn:hover {
-    background-color: #218838;
+#submit-btn:hover:not(:disabled) {
+    background-color: #8AB09E;
+    transform: translateY(-2px);
 }
 
 #start-btn {
-    background-color: #007bff;
-    color: white;
-    margin-top: 10px;
+    background-color: #B088A0; /* Pink keunguan */
+    margin-top: 15px;
 }
 
-#start-btn:hover {
-    background-color: #0056b3;
+#start-btn:hover:not(:disabled) {
+    background-color: #9C7892;
+    transform: translateY(-2px);
+}
+
+#submit-btn:disabled, #start-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
 .feedback-text {
-    margin-top: 20px;
-    font-size: 1.2em;
+    margin-top: 25px;
+    font-size: 1.3em;
     font-weight: bold;
+    min-height: 30px; /* Untuk menjaga layout tetap */
 }
 
 /* Style untuk jawaban benar/salah */
 .correct {
-    color: #28a745;
+    color: #5cb85c; /* Hijau cerah untuk benar */
 }
 
 .incorrect {
-    color: #dc3545;
+    color: #d9534f; /* Merah untuk salah */
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+        border-radius: 10px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .question-text {
+        font-size: 2em;
+    }
+    #user-answer, #submit-btn, #start-btn {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .input-area {
+        flex-direction: column;
+        gap: 15px;
+    }
+    #user-answer {
+        width: 80%;
+        margin-right: 0;
+    }
 }
