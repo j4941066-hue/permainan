@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Matematika Cepat</title>
+    <title>Game Matematika Seru!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Game Matematika Cepat 🧠</h1>
+        <h1>Game Matematika Seru!</h1>
+        
         <div id="score-area">
-            Skor: <span id="score">0</span>
+            Skor Anda: <span id="score">0</span>
         </div>
-        
+
         <div id="question-area">
-            <p>Soal:</p>
-            <div id="question" class="question-text">Klik "Mulai" untuk bermain!</div>
+            <p class="question-text" id="question">Tekan Mulai untuk bermain!</p>
+        </div>
+
+        <div class="input-area">
+            <input type="number" id="user-answer" placeholder="Jawab di sini..." disabled>
+            <button id="submit-btn" disabled>Kirim</button>
         </div>
         
-        <div id="answer-area">
-            <input type="number" id="user-answer" placeholder="Masukkan jawaban..." disabled>
-            <button id="submit-btn" disabled>Cek Jawaban</button>
-            <button id="start-btn">Mulai</button>
-        </div>
-        
-        <div id="feedback" class="feedback-text"></div>
+        <p id="feedback" class="feedback-text"></p>
+
+        <button id="start-btn">Mulai Game</button>
     </div>
 
     <script src="script.js"></script>
